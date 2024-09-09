@@ -16,4 +16,8 @@ class Product extends Model
     {
     return $this->belongsTo(ProductType::class, 'product_type_id');
     }
+    public function getimage()
+    {
+    return $this->image_url==""?"https://pics.clipartpng.com/Cardboard_Box_PNG_Clip_Art_Image-2761.png": $this->image_url;
+    }
 }
