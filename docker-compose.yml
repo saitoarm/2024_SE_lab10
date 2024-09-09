@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=10.199.22.10
+      - DB_PORT=3306
+      - DB_DATABASE=sc362102_pass
+      - DB_USERNAME=sc362102_student
+      - DB_PASSWORD=ilike@sc362102
