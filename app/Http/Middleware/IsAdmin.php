@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use app\Models\User;
 
 class IsAdmin
 {
@@ -16,7 +18,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->user_type == 2) {
+        if (!Auth::check()) {
+            return redirect()->route('error'); // เปลี่ยนเส้นทางไปยังหน้า error
+        }
+        if (auth()->user()->isAdmin()) {
         return $next($request);
         }
         return redirect()->route('error');
