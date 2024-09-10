@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin 1',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('wordpass'),
-            'user_type' => 0
+            'user_type' => 2
         ]);
         $this->call((ProductTypesTableSeeder::class));
         $this->call((ProductsTableSeeder_service1::class));

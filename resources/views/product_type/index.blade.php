@@ -45,7 +45,7 @@
                                             <p class="text-xs text-secondary mb-0">ชิ้น</p>
                                         </td>
                                         <td class="align-middle">
-                                            <form action="{{ route('product_type.destroy', $ptype->id) }}" method="POST">
+                                            <form action="{{ route('product_types.destroy', $ptype->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="#" class="btn btn-outline-success px-3 py-2"><i

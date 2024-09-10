@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,10 @@ Route::middleware('auth')->group(function () {
 });
 // Route::resource('product_type', ProductTypeController::class)->middleware(['auth', 'verified']);
 // Route::resource('products', ProductController::class)->middleware(['auth', 'verified']);
-Route::resource('product_type', ProductTypeController::class);
+Route::resource('product_types', ProductTypeController::class);
 Route::resource('products', ProductController::class);
-
+Route::get('/error', function () {
+    return view('error_page');
+})->name('error');
+Route::get('/admin-dashboard', [AdminController::class, 'dashboard'])->middleware('is_admin');
 require __DIR__.'/auth.php';
